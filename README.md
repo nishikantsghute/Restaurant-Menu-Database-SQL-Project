@@ -27,6 +27,7 @@ One category → many menu items
 One customer → many orders
 One order → many menu items
 One order → one payment
+
 4️⃣ Database Schema (SQL Code)
 🔹 Create Database
 CREATE DATABASE Restaurant_Menu_DB;
@@ -75,6 +76,7 @@ CREATE TABLE payments (
     amount DECIMAL(8,2),
     FOREIGN KEY (order_id) REFERENCES orders(order_id)
 );
+
 5️⃣ Sample Data (INSERT Statements)
 INSERT INTO categories VALUES
 (1, 'Starters'),
@@ -102,6 +104,7 @@ INSERT INTO order_details VALUES
 INSERT INTO payments VALUES
 (1, 1001, 'UPI', 530.00),
 (2, 1002, 'Cash', 180.00);
+
 6️⃣ SQL Queries
 🔹 Display Full Menu with Categories
 SELECT m.item_name, c.category_name, m.price
@@ -129,13 +132,14 @@ JOIN menu_items m ON c.category_id = m.category_id
 JOIN order_details od ON m.item_id = od.item_id
 JOIN payments p ON od.order_id = p.order_id
 GROUP BY c.category_name;
+
 7️⃣ Advanced Features (Optional)
 Views for daily sales reports
 Stored procedures to place orders
 Triggers to update item availability
 Indexes for faster searching
 Discount logic for loyal customers
-8️⃣ Conclusion
 
+8️⃣ Conclusion
 This Restaurant Menu Database efficiently manages restaurant operations using SQL.
 It demonstrates real-world use of relational database concepts, joins, constraints, and analytical queries, making it ideal for academic submission and interviews.
